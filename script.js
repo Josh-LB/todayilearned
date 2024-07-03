@@ -96,7 +96,8 @@ function createCategoriesList(dataArray) {
 
     c.innerText = dataArray[i]["name"];
     c.style.backgroundColor = dataArray[i]["color"];
-    c.style.margin = "6px";
+    c.style.margin = "6px 0px";
+
     categoryList.before(c);
   }
   categoryList.children[0].style.display = "none";
