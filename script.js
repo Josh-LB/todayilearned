@@ -81,18 +81,12 @@ function createFactsList(dataArray) {
             >(Source)</a>
         </p>
         <span class="tag" style="background-color:
-        ${CATEGORIES[checkColour(fact.category)].color}">
+        ${CATEGORIES.find((cat) => cat.name === fact.category).color}">
           ${fact.category}<span>
     </li>`
   );
   const html = htmlArr.join("");
   factsList.insertAdjacentHTML("afterbegin", html);
-
-  function checkColour(cat) {
-    return CATEGORIES.findIndex(function (item) {
-      return item.name == cat;
-    });
-  }
 }
 
 createCategoriesList(CATEGORIES);
