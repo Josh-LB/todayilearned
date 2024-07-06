@@ -32,7 +32,17 @@
     list-style: none;
     padding-inline-start: 0px;
   }
+  .box2 {
+    position: absolute;
+    z-index: 3;
+    background-color: rgb(255, 175, 175);
+    height: 100%;
+    aspect-ratio: 9 / 19.5;
+    
+  }
   .box {
+    position: absolute;
+    z-index: 1;
     background-color: white;
     height: 100%;
     aspect-ratio: 9 / 20;
@@ -106,11 +116,67 @@
     align-items: end;
     justify-content: center;
   }
+
+  .hidden {
+  /* display: none !important; */
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+  /* animation-timing-function: linear; */
+  animation-name: fade-out;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+.visible {
+  /* display: none !important; */
+  display: inline;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+  /* animation-timing-function: linear; */
+  animation-name: fade-in;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+
+  }
+  100% {
+    opacity: 1;
+
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    /* opacity: 1; */
+    transform: translateY(0);
+  }
+  99% {
+    /* opacity: 0; */
+    transform: translateY(-100%);
+  }
+  100% {
+    display: none;
+  }
+}
+
+
+
+
+
 </style>
 
     <title>Today I Learned!</title>
   </head>
   <body>
+    <div class="box2"><img
+      src="logo2.png"
+      height="100%"
+      width="100%"
+      alt="Today I Learned Logo"
+    /></div>
     <div class="box">
       <div class="message-header">
         <div class="contact-info">
@@ -143,14 +209,23 @@ const messageThread = document.querySelector(".thread");
 const bubble = document.querySelector(".bubble");
 const messageHeader = document.querySelector(".message-header");
 const body = document.querySelector("body");
+const box2 = document.querySelector(".box2");
+const box = document.querySelector(".box");
 
-messageHeader.addEventListener("click", function () {
-  if (document.fullscreenElement) {
-    document.exitFullscreen()
-  } else {
-    body.requestFullscreen();
-  }
-})
+
+box2.addEventListener("click", function () {
+  box2.classList.add("hidden");
+});
+
+
+
+// messageHeader.addEventListener("click", function () {
+//   if (document.fullscreenElement) {
+//     document.exitFullscreen()
+//   } else {
+//     body.requestFullscreen();
+//   }
+// })
 
 
 const messages = [
