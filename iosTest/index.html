@@ -25,6 +25,7 @@
     margin: 0px;
     padding: 0px;
     display: flex;
+    flex-shrink: 100;
     justify-content: center;
   }
   ul {
@@ -141,6 +142,8 @@
 const messageThread = document.querySelector(".thread");
 const bubble = document.querySelector(".bubble");
 
+document.querySelector("body").requestFullscreen();
+
 const messages = [
   { type: "", name: "when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
   { type: "rec",  name: "science"},
@@ -150,6 +153,7 @@ const messages = [
   { type: "",  name: "science"}
 
 ];
+
 
 
 createCategoriesList(messages);
