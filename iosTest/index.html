@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link href="style.css" rel="stylesheet" /> -->
+<style>
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+  html {
+    height: 100%;
+  }
+  body {
+    height: 100%;
+    background-color: black;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+  }
+  ul {
+    list-style: none;
+    padding-inline-start: 0px;
+  }
+  .box {
+    background-color: white;
+    height: 100%;
+    aspect-ratio: 9 / 19.5;
+    display: grid;
+    grid-template-rows: 13% 1fr 7%;
+  }
+  .message-header {
+    background-color: rgb(198, 198, 198);
+ 
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+  }
+  .contact-info {
+    background-color: aqua;
+    height: 80%;
+    width: 15%;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact-icon {
+    background-color: white;
+    width: 100%;
+    aspect-ratio: 1/1;
+
+    margin-bottom: 10%;
+  }
+
+  .contact-name {
+    font-size: 1.2vmax;
+    width: 100%;
+    color: black;
+    text-align: center;
+  }
+
+  .message-thread{
+    overflow-y: auto;
+    display: flex;
+    flex-shrink: 0;
+    scrollbar-width: none;
+  }
+  .thread{
+    pointer-events: none;
+  }
+
+  .bubble {
+    background-color: #3b82f6;
+    pointer-events: none;
+    color: white;
+    font-family: "Sono", sans-serif;
+    line-height: 1;
+    text-transform: uppercase;
+    font-size: 150%;
+    border-radius: 20px;
+    padding: 4% 4%;
+    margin: 10% 5%;
+    letter-spacing: -1px;
+  }
+  .bubble-rec {
+    color: rgb(0, 0, 0);
+    background-color: rgb(180, 180, 180);
+  }
+
+  .message-footer {
+    background-color: rgb(198, 198, 198);
+ 
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+  }
+</style>
+
+    <title>Today I Learned!</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="message-header">
+        <div class="contact-info">
+          <div class="contact-icon"></div>
+          <div class="contact-name">Brian ></div>
+        </div>
+      </div>
+      <div class="message-thread">
+        <ul>
+          <li class="thread">
+            <p
+              class="bubble"
+              
+            >
+              Technology
+            </p>
+            
+          </li>
+      
+          </li>
+        </ul>
+      </div>
+      <div class="message-footer"></div>
+    </div>
+    
+
+<script>
+
+const messageThread = document.querySelector(".thread");
+const bubble = document.querySelector(".bubble");
+
+const messages = [
+  { type: "", name: "when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
+  { type: "rec",  name: "science"},
+  { type: "",  name: "when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
+  { type: "rec",  name: "science"},
+  { type: "",  name: "when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."},
+  { type: "",  name: "science"}
+
+];
+
+
+createCategoriesList(messages);
+function createCategoriesList(dataArray) {
+  for (let i = 0; i < dataArray.length; i++) {
+    let c = messageThread.children[0].cloneNode(true);
+   
+    c.innerText = dataArray[i]["name"];
+    c.style.margin = "6px 0px";
+    if (dataArray[i]["type"] === "rec"){
+      c.classList.add("bubble-rec");
+    }
+    messageThread.before(c);
+    console.log("added");
+  }
+ messageThread.children[0].style.display = "none";
+}
+
+</script>
+
+  </body>
+</html>
