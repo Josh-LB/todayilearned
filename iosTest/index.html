@@ -142,9 +142,14 @@
 const messageThread = document.querySelector(".thread");
 const bubble = document.querySelector(".bubble");
 const messageHeader = document.querySelector(".message-header");
+const body = document.querySelector("body");
 
-messageHeader.addEventListener("click", function (m) {
-  document.querySelector("body").requestFullscreen();
+messageHeader.addEventListener("click", function () {
+  if (document.fullscreenElement) {
+    document.exitFullscreen()
+  } else {
+    body.requestFullscreen();
+  }
 })
 
 
