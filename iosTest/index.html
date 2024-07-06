@@ -32,6 +32,15 @@
     list-style: none;
     padding-inline-start: 0px;
   }
+  .btn-reset {
+    position: inherit;
+ 
+    z-index: 5;
+    opacity: 00;
+    background-color: rgb(255, 175, 175);
+    height: 9%;
+    width: 30%;
+  }
   .box2 {
     position: absolute;
     z-index: 3;
@@ -45,7 +54,7 @@
     z-index: 1;
     background-color: white;
     height: 100%;
-    aspect-ratio: 9 / 20;
+    aspect-ratio: 9 / 19.5;
     display: grid;
     grid-template-rows: 13% 1fr 7%;
   }
@@ -150,12 +159,12 @@
 
 @keyframes fade-out {
   0% {
-    /* opacity: 1; */
+    opacity: 1;
     transform: translateY(0);
   }
   99% {
-    /* opacity: 0; */
-    transform: translateY(-100%);
+    opacity: 0;
+    transform: translateY(-200%);
   }
   100% {
     display: none;
@@ -171,6 +180,7 @@
     <title>Today I Learned!</title>
   </head>
   <body>
+ 
     <div class="box2"><img
       src="logo2.png"
       height="100%"
@@ -178,6 +188,7 @@
       alt="Today I Learned Logo"
     /></div>
     <div class="box">
+      <div class="btn-reset"></div>
       <div class="message-header">
         <div class="contact-info">
           <div class="contact-icon"></div>
@@ -211,10 +222,14 @@ const messageHeader = document.querySelector(".message-header");
 const body = document.querySelector("body");
 const box2 = document.querySelector(".box2");
 const box = document.querySelector(".box");
+const btnReset = document.querySelector(".btn-reset");
 
 
 box2.addEventListener("click", function () {
   box2.classList.add("hidden");
+});
+btnReset.addEventListener("click", function () {
+  box2.classList.remove("hidden");
 });
 
 
