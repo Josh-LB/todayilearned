@@ -284,13 +284,14 @@ box2.addEventListener('mousedown', tDown);
 
 box2.addEventListener('touchend', tUp);
 box2.addEventListener('mouseup', tUp);
-function tDown (e) {
+
+function tDown (e) { 
   e.preventDefault();
-  touchstartY = event.screenY;
+  touchstartY = (e.type === 'touchstart')? e.touches[0].screenY :touchtouchstartYndY = e.screenY;
 }
 function tUp (e) {
   e.preventDefault();
-  touchendY = event.screenY;
+  touchendY = (e.type === 'touchend')? e.changedTouches[0].screenY :touchendY = e.screenY; 
   if (touchendY < touchstartY) {
       gsap.to(box2, {duration:.3, y:"-100%"})
   }
