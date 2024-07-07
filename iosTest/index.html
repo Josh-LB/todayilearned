@@ -307,6 +307,14 @@ function resetApp (e) {
   scrollcontainer.scrollTo(0, scrollcontainer.scrollHeight);
 }
 
+messageHeader.addEventListener("touchdown", function () {
+  if (document.fullscreenElement) {
+    document.exitFullscreen()
+  } else {
+    body.requestFullscreen();
+  }
+})
+
 messageHeader.addEventListener("click", function () {
   if (document.fullscreenElement) {
     document.exitFullscreen()
